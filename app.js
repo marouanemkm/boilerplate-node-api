@@ -5,7 +5,7 @@ const app = express();
 
 const userRoutes = require("./routes/user-routes");
 
-const ALLOWED_ORIGINS = ["http://localhost:3000", "http://localhost:3001"];
+const ALLOWED_ORIGINS = ["http://localhost:3000", "http://localhost:3001", "http://localhost:1304"];
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;

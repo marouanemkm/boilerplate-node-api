@@ -1,6 +1,16 @@
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
+exports.home = (req, res, next) => {
+  try {
+    console.log(req);
+    return res.status(200).json({ message: "Bienvenue sur l'api de test" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 exports.login = (req, res, next) => {
   try {
     const email = req.body.username;
@@ -36,7 +46,7 @@ exports.login = (req, res, next) => {
     //     return res.status(401).json({ message: 'Données invalides' })
     // }
   } catch (error) {
-    console.log("error inconnue");
+    console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -62,6 +72,7 @@ exports.auth = async (req, res) => {
 
     return res.status(200).json({ message: "authenticated !" });
   } catch (err) {
+    console.log(error);
     return res.status(500).json({ error: "Internal server error" });
   }
 };
