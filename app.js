@@ -21,6 +21,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.enable('trust proxy')
+app.set('trust proxy', 1);
+
 app.use("/api", userRoutes);
+app.use(cors());
 
 module.exports = app;
